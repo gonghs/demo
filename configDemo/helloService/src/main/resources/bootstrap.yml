@@ -1,0 +1,17 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:9001/eureka/
+  instance:
+    preferIpAddress: true
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+
+spring:
+  cloud:
+    config:
+      discovery:
+        service-id: config-service
+        enabled: true
+      label: master
+      name: hello
+      profile: ${spring.profiles.active:dev}
